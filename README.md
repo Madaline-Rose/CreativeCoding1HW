@@ -1,3 +1,3 @@
-# MART-120-Assignments
+# CreativeCoding1HW
 
 My repository for my Creativty Coding class
