@@ -1,1 +1,1 @@
-Week 6 homework folder where I am workingin HTML
+Week 6 homework folder where I am working in HTML
