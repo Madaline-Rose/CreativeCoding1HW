@@ -13,3 +13,7 @@ a:hover{
 #bigger{
     font-size: 30px;
 }
+
+.p{
+    background-image:url(background.jpg)
+}
