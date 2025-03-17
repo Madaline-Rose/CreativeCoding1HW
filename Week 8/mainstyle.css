@@ -1,0 +1,19 @@
+.body{
+    text-align: center;
+}
+
+a:hover{
+    color:darkgoldenrod;
+}
+
+.green{
+    color:darkolivegreen;
+}
+
+#bigger{
+    font-size: 30px;
+}
+
+.p{
+    background-image:url(background.jpg)
+}

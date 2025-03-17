@@ -1,0 +1,41 @@
+<html>
+    <title>Contact Us Page</title>
+    <head>
+        <h2 class="green">Contact Us!</h2>
+        <link rel="stylesheet" type="text/css" href="mainstyle.css">
+        <style>
+            .error
+            {
+                border: 2px solid red;
+            }
+            #tc.error 
+            {
+                box-shadow: 0 0 5px 2px red;
+            }
+        </style>
+    </head>
+    <body>
+        <form id="forumForm">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" id="txtName"name="txtName"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" id="txtEmail"name="txtEmail"></td>
+            </tr>
+        </table>
+        <p>
+            <td><input type="checkbox" id="tc"name="tc"></td>
+            <td>I agree to the Terms and Conditions (Required)</td>
+    
+        </p>
+        <button type="submit">Submit</button>
+        </form>
+        <script src="script.js"></script>
+        <p>
+            <a href="index.html" style="color:black">Homepage</a>
+        </p>
+    </body>
+</html>
