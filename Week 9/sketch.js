@@ -9,7 +9,7 @@ function draw()
 
     //back of hair
     fill(230, 180, 119);
-    rect(155, 80, 195, 135);
+    rect(155, 80, 192, 135);
 
     //body
     fill(0, 0, 0);
@@ -17,7 +17,7 @@ function draw()
 
     //head
     fill (255, 222, 199);
-    ellipse(250, 122, 150);
+    ellipse(250, 153, 120, 140);
 
     //hair bangs
     fill(230, 180, 119);
@@ -57,12 +57,12 @@ function draw()
 
     //title
     fill(255);
-    textsize(22);
+    textSize(22);
     text("It's-a me, Madaline!", 155, 400);
 
     //signature
     fill(0, 0, 0);
-    textStyle(OTALIC);
+    textStyle(ITALIC);
     textSize(18);
     text("Madaline Brown", 183, 435);
     
