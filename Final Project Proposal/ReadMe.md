@@ -1,5 +1,5 @@
 Proposal: 
-    I love movies and knew I wanted my prokect based arround it. I wanted to challenge myself though. I have already done a movi trivia and short interactive stories (basic yes, but still). While searching around for inspiration I came across AR movie posters. ALthough not huge yet I could find some examples. Which lead me to my idea, a digital interactive movie poster! When you click on certain objects it might spin, or make a sound. 
+    I love movies and knew I wanted my prokect based arround it. I wanted to challenge myself though. I have already done a movie trivia and short interactive stories (simplistic yes, but still). While searching around for inspiration I came across AR movie posters. ALthough not huge yet I could find some examples. Which lead me to my idea, a digital interactive movie poster! When you click on certain objects it might spin, or make a sound. 
 
 Inspiration:
 - I saw on Instagram these people specialize in AR/VR/IRl
@@ -43,6 +43,6 @@ Work Plan
 What I have done so far:
 - I have done research into the type of project 
 - Chose movie (Treasure Planet)
-- Made concept poster in Canvas (some placeholder images)
+- Made concept poster in Canvas
 - Took some notes of what I wanted to make interactable 
 - I UPLOADED SEPERATE FILE FROM CANVAS REFERENCE I CREATED
