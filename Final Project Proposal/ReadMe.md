@@ -22,6 +22,7 @@ Challenges
 - Cursor tracker (like when hoovering over an object it enlarges a little to show it is interactable)
 - I would also like to use sound but I will need to learn how
 - Inserting oustide sources of images/stickers
+- getting the images to match the position same as the one I created in Canvas
 
 Work Plan
 - April 29th-30th
@@ -43,6 +44,6 @@ Work Plan
 What I have done so far:
 - I have done research into the type of project 
 - Chose movie (Treasure Planet)
-- Made concept poster in Canvas
+- Made concept poster in Canvas (not set but main idea)
 - Took some notes of what I wanted to make interactable 
 - I UPLOADED SEPERATE FILE FROM CANVAS REFERENCE I CREATED
