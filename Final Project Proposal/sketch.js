@@ -17,14 +17,14 @@ function preload() {
     jim = loadImage("jim.png");
     ship = loadImage("ship.png");
     morph = loadImage("morph.png");
-    jimSong = loadSound("Im Still Here.mp3"); // corrected variable name
+    jimSong = loadSound("im_still_here.mp3"); 
 }
 
 function setup() {
     createCanvas(1587, 2245);
 
     // Add twinkling stars
-    for (let i = 0; i < 200; i++) { // FIXED: use < not ,
+    for (let i = 0; i < 200; i++) { 
         stars.push({
             x: random(width),
             y: random(height),
