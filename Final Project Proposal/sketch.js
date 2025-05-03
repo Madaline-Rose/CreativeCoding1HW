@@ -1,78 +1,82 @@
-//Background stars
+// Background stars
 let stars = [];
 let numStars = 100;
 
-//Inserted images,songs, qoute
+// Inserted images, song, quote
 let bg;
 let jim, ship, morph;
 let jimSong; 
 let quoteVisible = false; 
 
+// Morph movement
+let morphX = 300;
+let morphY = 600;
+
 function preload() {
-    //placeholder
-    bg = loadImage ("bg.png");
-    jim = loadImage ("jim.png");
+    bg = loadImage("bg.png");
+    jim = loadImage("jim.png");
     ship = loadImage("ship.png");
-    morph = loadImage ("morph.png");
-    song = loadSound ("I'm Still Here.mp3");
+    morph = loadImage("morph.png");
+    jimSong = loadSound("Im Still Here.mp3"); // corrected variable name
 }
 
-function setup(){
-    createCanvas (1587, 2245);
+function setup() {
+    createCanvas(1587, 2245);
 
-    //Adding twinkling stars
-    for (let i = 0; i , 200; i++)
+    // Add twinkling stars
+    for (let i = 0; i < 200; i++) { // FIXED: use < not ,
         stars.push({
-        x: random (width),
-        y: random(height),
-        brightness: random (100, 225),
-        delta: random (0.5, 2)
-    });
+            x: random(width),
+            y: random(height),
+            brightness: random(100, 225),
+            delta: random(0.5, 2)
+        });
+    }
 }
 
-function draw (){
-    Image(bg, 0, 0, width, height);
-    drawTwinklingStars ();
+function draw() {
+    image(bg, 0, 0, width, height);
+    drawTwinklingStars();
 
-    //Adding interactive characters (jim, morph)
-    image (jim, 100, 400, 100, 150);
-    image (ship, 500, 200, 120, 80); 
-    image (morph, mouseX, mouseY, 80, 80); 
+    // Interactive characters
+    image(jim, 100, 400, 100, 150);
+    image(ship, 500, 200, 120, 80);
+    image(morph, morphX, morphY, 80, 80);
 
-    //Adding qoute on ship hover
-    if (qouteVisible) {
-        fill (255);
-        textSize (20);
-        text ("You got the makings of greatness in you...", 100, 180);
+    // Show quote on ship hover
+    if (quoteVisible) {
+        fill(255);
+        textSize(20);
+        text("You got the makings of greatness in you...", 100, 180);
     }
 }
 
 function mousePressed() {
-//clicking jim
-if (mouseX > 100 && mouseX < 200 && mouseY > 400 && mouseY < 550) {
-    if (!song.isPlaying()) {
-        song.play();
+    // Clicking Jim
+    if (mouseX > 100 && mouseX < 200 && mouseY > 400 && mouseY < 550) {
+        if (!jimSong.isPlaying()) {
+            jimSong.play();
+        }
     }
-}
 
-//clicking morph
-if (mouseX > mouseX && mouseX < mouseX + 80 && mouseY > mouseY && mouseY < mouseY + 80); {
- morph.x = random (width);
- morph.y = random (height);   
+    // Clicking Morph
+    if (mouseX > morphX && mouseX < morphX + 80 && mouseY > morphY && mouseY < morphY + 80) {
+        morphX = random(width - 80);
+        morphY = random(height - 80);
     }
 }
 
 function mouseMoved() {
     // Hover over ship
     quoteVisible = (mouseX > 500 && mouseX < 620 && mouseY > 200 && mouseY < 280);
-  }
+}
 
-  function drawTwinklingStars() {
-    noStroke ();
+function drawTwinklingStars() {
+    noStroke();
     for (let star of stars) {
-        fill (255, 255, 255, star.brightness);
-        circle (star.x, star.y, 2);
-        star.brightness += random (-star.delta, star.delta);
-        star.brightness = constrain (star.brightness, 100, 255);
+        fill(255, 255, 255, star.brightness);
+        circle(star.x, star.y, 2);
+        star.brightness += random(-star.delta, star.delta);
+        star.brightness = constrain(star.brightness, 100, 255);
     }
-  }
+}
