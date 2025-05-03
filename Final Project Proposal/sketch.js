@@ -10,7 +10,7 @@ let quoteVisible = false;
 
 function preload() {
     //placeholder
-    bg = loadImage ("copy of Teasure Planet.png");
+    bg = loadImage ("bg.png");
     jim = loadImage ("jim.png");
     ship = loadImage("ship.png");
     morph = loadImage ("morph.png");
