@@ -2,20 +2,19 @@
 let stars = [];
 let numStars = 100;
 
-// Images and assets
+// Inserted images, song, quote
 let bgFinal;
-let morph;
-let jimSong;
+let jimSong; 
 let quoteVisible = false;
 
-// Morph's floating position
-let morphX = 800;
-let morphY = 1250;
+// Morph position
+let morphX = 412;
+let morphY = 583;
 
 function preload() {
-  bg = loadImage("bgFinal.png"); 
-  morph = loadImage("morph.png"); // Just morph character (optional)
+  bgFinal = loadImage("bgFinal.png");
   jimSong = loadSound("im_still_here.mp3");
+  morph = loadImage("morph.png");
 }
 
 function setup() {
@@ -27,48 +26,42 @@ function setup() {
       x: random(width),
       y: random(height),
       brightness: random(100, 225),
-      delta: random(0.5, 2),
+      delta: random(0.5, 2)
     });
   }
 }
 
 function draw() {
-  image(bg, 0, 0, width, height); // Full poster
+  image(bgFinal, 0, 0, width, height);
   drawTwinklingStars();
 
-  // Morph floating on top
-  image(morph, morphX, morphY, 100, 100);
-
-  // Show quote on ship hover
+  // Show quote if hovering over the ship
   if (quoteVisible) {
     fill(255);
     textSize(24);
     textAlign(CENTER);
-    text("You got the makings of greatness in you...", width / 2, 180);
+    text("You got the makings of greatness in you...", width / 2, 200);
   }
 }
 
 function mousePressed() {
-  // Click Jim (adjust these coordinates to match your poster!)
-  if (mouseX > 230 && mouseX < 430 && mouseY > 1480 && mouseY < 1700) {
+  // Click Jim (318, 927)
+  if (dist(mouseX, mouseY, 318, 927) < 75) {
     if (!jimSong.isPlaying()) {
       jimSong.play();
     }
   }
 
-  // Click Morph to move him
-  if (mouseX > morphX && mouseX < morphX + 100 && mouseY > morphY && mouseY < morphY + 100) {
+  // Click Morph to move
+  if (dist(mouseX, mouseY, morphX, morphY) < 50) {
     morphX = random(width - 100);
     morphY = random(height - 100);
   }
-
-  // Optional: show mouse coordinates for debugging
-  // console.log("Mouse clicked at:", mouseX, mouseY);
 }
 
 function mouseMoved() {
-  // Hover ship (adjust coordinates to your ship area)
-  quoteVisible = mouseX > 1000 && mouseX < 1300 && mouseY > 400 && mouseY < 600;
+  // Hover ship (1346, 1559)
+  quoteVisible = dist(mouseX, mouseY, 1346, 1559) < 80;
 }
 
 function drawTwinklingStars() {
