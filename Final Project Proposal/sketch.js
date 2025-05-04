@@ -52,20 +52,20 @@ function draw() {
 
 function mousePressed() {
     userStartAudio();
-    
+
   // Click Jim (318, 927)
   if (dist(mouseX, mouseY, 318, 927) < 75) {
     if (!jimSong.isPlaying()) {
       jimSong.play();
     }
   }
+}
 
   // Click Morph to move
   if (dist(mouseX, mouseY, morphX, morphY) < 50) {
     morphX = random(width - 100);
     morphY = random(height - 100);
   }
-}
 
 function mouseMoved() {
   // Hover ship (1346, 1559)
