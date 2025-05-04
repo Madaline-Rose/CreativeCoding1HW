@@ -3,7 +3,7 @@ let stars = [];
 let numStars = 100;
 
 // Images and assets
-let bg;
+let bgFinal;
 let morph;
 let jimSong;
 let quoteVisible = false;
@@ -13,7 +13,7 @@ let morphX = 800;
 let morphY = 1250;
 
 function preload() {
-  bg = loadImage("bg.png"); // Full Canva poster
+  bg = loadImage("bgFinal.png"); 
   morph = loadImage("morph.png"); // Just morph character (optional)
   jimSong = loadSound("im_still_here.mp3");
 }
