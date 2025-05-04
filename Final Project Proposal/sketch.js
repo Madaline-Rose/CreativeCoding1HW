@@ -42,8 +42,8 @@ function draw() {
     drawTwinklingStars();
 
     // Interactive characters
-    image(jim, 300, 920, 180, 260);
-    image(ship, 1120, 350, 220, 120);
+    image(jim, -950, -550, 1587, 2245);
+    image(ship, 1120, 350, 1220, 1120);
     image(morph, morphX, morphY, 100, 100);
 
     // Show quote on ship hover
