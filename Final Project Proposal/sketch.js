@@ -6,6 +6,7 @@ let numStars = 100;
 let bgFinal;
 let jimSong; 
 let quoteVisible = false;
+let morphImg;
 
 // Morph position
 let morphX = 412;
@@ -14,7 +15,7 @@ let morphY = 583;
 function preload() {
   bgFinal = loadImage("bgFinal.png");
   jimSong = loadSound("im_still_here.mp3");
-  morph = loadImage("morph.png");
+  morphImg = loadImage("morph.png");
 }
 
 function setup() {
@@ -35,16 +36,23 @@ function draw() {
   image(bgFinal, 0, 0, width, height);
   drawTwinklingStars();
 
+  //Add morph
+  if (morphImg) {
+  image(morphImg, morphX - morphImg.width / 2, morphY - morphImg.height / 2);
+}
+
   // Show quote if hovering over the ship
   if (quoteVisible) {
     fill(255);
-    textSize(24);
+    textSize(60);
     textAlign(CENTER);
     text("You got the makings of greatness in you...", width / 2, 200);
   }
 }
 
 function mousePressed() {
+    userStartAudio();
+    
   // Click Jim (318, 927)
   if (dist(mouseX, mouseY, 318, 927) < 75) {
     if (!jimSong.isPlaying()) {
