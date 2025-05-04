@@ -31,6 +31,9 @@ function setup() {
             brightness: random(100, 225),
             delta: random(0.5, 2)
         });
+    
+    morphX = 800;
+    morphY = 1250; 
     }
 }
 
@@ -39,9 +42,9 @@ function draw() {
     drawTwinklingStars();
 
     // Interactive characters
-    image(jim, 100, 400, 100, 150);
-    image(ship, 500, 200, 120, 80);
-    image(morph, morphX, morphY, 80, 80);
+    image(jim, 300, 920, 180, 260);
+    image(ship, 1120, 350, 220, 120);
+    image(morph, morphX, morphY, 100, 100);
 
     // Show quote on ship hover
     if (quoteVisible) {
