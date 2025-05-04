@@ -27,14 +27,18 @@ function setup() {
       x: random(width),
       y: random(height),
       brightness: random(100, 225),
-      delta: random(0.5, 2)
+      delta: random(10, 30),
+      size: random(4,8)
     });
   }
 }
 
 function draw() {
   image(bgFinal, 0, 0, width, height);
+
+  blendMode (ADD);
   drawTwinklingStars();
+  blendMode(BLEND);
 
   //Add morph
   if (morphImg) {
@@ -59,13 +63,13 @@ function mousePressed() {
       jimSong.play();
     }
   }
-}
 
   // Click Morph to move
   if (dist(mouseX, mouseY, morphX, morphY) < 50) {
     morphX = random(width - 100);
     morphY = random(height - 100);
   }
+}
 
 function mouseMoved() {
   // Hover ship (1346, 1559)
@@ -73,11 +77,14 @@ function mouseMoved() {
 }
 
 function drawTwinklingStars() {
-  noStroke();
-  for (let star of stars) {
-    fill(255, 255, 255, star.brightness);
-    circle(star.x, star.y, 2);
-    star.brightness += random(-star.delta, star.delta);
-    star.brightness = constrain(star.brightness, 100, 255);
+    noStroke();
+    for (let star of stars) {
+      star.brightness += random(-star.delta, star.delta);
+      star.brightness = constrain(star.brightness, 20, 255);
+  
+      // Draw the star
+      fill(255, 255, random (230, 255), star.brightness);
+      let flicker = random(-1, 1);
+      circle(star.x, star.y, star.size + flicker);
+    }
   }
-}
