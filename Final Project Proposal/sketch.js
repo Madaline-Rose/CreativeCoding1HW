@@ -14,8 +14,8 @@ let morphY = 583;
 
 function preload() {
   bgFinal = loadImage("bgFinal.png");
-  jimSong = loadSound("im_still_here.mp3");
-  morphImg = loadImage("morph.png");
+  jimSong = loadSound("themeSong.mp3");
+  morphImg = loadImage("morphEdit.png");
 }
 
 function setup() {
