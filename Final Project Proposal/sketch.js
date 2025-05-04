@@ -2,84 +2,81 @@
 let stars = [];
 let numStars = 100;
 
-// Inserted images, song, quote
+// Images and assets
 let bg;
-let jim, ship, morph;
-let jimSong; 
-let quoteVisible = false; 
+let morph;
+let jimSong;
+let quoteVisible = false;
 
-// Morph movement
-let morphX = 300;
-let morphY = 600;
+// Morph's floating position
+let morphX = 800;
+let morphY = 1250;
 
 function preload() {
-    bg = loadImage("bg.png");
-    jim = loadImage("jim.png");
-    ship = loadImage("ship.png");
-    morph = loadImage("morph.png");
-    jimSong = loadSound("im_still_here.mp3"); 
+  bg = loadImage("bg.png"); // Full Canva poster
+  morph = loadImage("morph.png"); // Just morph character (optional)
+  jimSong = loadSound("im_still_here.mp3");
 }
 
 function setup() {
-    createCanvas(1587, 2245);
+  createCanvas(1587, 2245);
 
-    // Add twinkling stars
-    for (let i = 0; i < 200; i++) { 
-        stars.push({
-            x: random(width),
-            y: random(height),
-            brightness: random(100, 225),
-            delta: random(0.5, 2)
-        });
-    
-    morphX = 800;
-    morphY = 1250; 
-    }
+  // Create twinkling stars
+  for (let i = 0; i < 200; i++) {
+    stars.push({
+      x: random(width),
+      y: random(height),
+      brightness: random(100, 225),
+      delta: random(0.5, 2),
+    });
+  }
 }
 
 function draw() {
-    image(bg, 0, 0, width, height);
-    drawTwinklingStars();
+  image(bg, 0, 0, width, height); // Full poster
+  drawTwinklingStars();
 
-    // Interactive characters
-    image(jim, -950, -550, 1587, 2245);
-    image(ship, 1120, 350, 1220, 1120);
-    image(morph, morphX, morphY, 100, 100);
+  // Morph floating on top
+  image(morph, morphX, morphY, 100, 100);
 
-    // Show quote on ship hover
-    if (quoteVisible) {
-        fill(255);
-        textSize(20);
-        text("You got the makings of greatness in you...", 100, 180);
-    }
+  // Show quote on ship hover
+  if (quoteVisible) {
+    fill(255);
+    textSize(24);
+    textAlign(CENTER);
+    text("You got the makings of greatness in you...", width / 2, 180);
+  }
 }
 
 function mousePressed() {
-    // Clicking Jim
-    if (mouseX > 100 && mouseX < 200 && mouseY > 400 && mouseY < 550) {
-        if (!jimSong.isPlaying()) {
-            jimSong.play();
-        }
+  // Click Jim (adjust these coordinates to match your poster!)
+  if (mouseX > 230 && mouseX < 430 && mouseY > 1480 && mouseY < 1700) {
+    if (!jimSong.isPlaying()) {
+      jimSong.play();
     }
+  }
 
-    // Clicking Morph
-    if (mouseX > morphX && mouseX < morphX + 80 && mouseY > morphY && mouseY < morphY + 80) {
-        morphX = random(width - 80);
-        morphY = random(height - 80);
-    }
+  // Click Morph to move him
+  if (mouseX > morphX && mouseX < morphX + 100 && mouseY > morphY && mouseY < morphY + 100) {
+    morphX = random(width - 100);
+    morphY = random(height - 100);
+  }
+
+  // Optional: show mouse coordinates for debugging
+  // console.log("Mouse clicked at:", mouseX, mouseY);
 }
 
 function mouseMoved() {
-    // Hover over ship
-    quoteVisible = (mouseX > 500 && mouseX < 620 && mouseY > 200 && mouseY < 280);
+  // Hover ship (adjust coordinates to your ship area)
+  quoteVisible = mouseX > 1000 && mouseX < 1300 && mouseY > 400 && mouseY < 600;
 }
 
 function drawTwinklingStars() {
-    noStroke();
-    for (let star of stars) {
-        fill(255, 255, 255, star.brightness);
-        circle(star.x, star.y, 2);
-        star.brightness += random(-star.delta, star.delta);
-        star.brightness = constrain(star.brightness, 100, 255);
-    }
+  noStroke();
+  for (let star of stars) {
+    fill(255, 255, 255, star.brightness);
+    circle(star.x, star.y, 2);
+    star.brightness += random(-star.delta, star.delta);
+    star.brightness = constrain(star.brightness, 100, 255);
+  }
 }
